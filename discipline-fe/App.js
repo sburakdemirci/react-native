@@ -22,7 +22,7 @@ export default class App extends Component {
 
  styles = {
   deneme: {
-    paddingTop: 300
+    paddingTop: 200
   }
 }
 
