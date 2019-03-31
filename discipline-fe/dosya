@@ -1,0 +1,60 @@
+
+      <View style={styles.container}>
+      
+        {this.state.persons.map((person,i)=> 
+          <Text>
+            {person.id+i}
+          </Text>
+          
+          )}
+       
+      </View>
+
+
+
+      map olayı
+
+
+
+
+      import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
+import axios from 'axios';
+
+
+
+class springdeneme extends Component {
+ 
+    state = {
+        persons: []
+      }
+    
+      componentDidMount() {
+        axios.get(`http://192.168.1.34:8080/api/test1`
+     
+        )
+        .then(res => {
+        
+          const persons = res.data;
+          this.setState({ persons });
+        })
+                  } 
+                  
+    
+      render() {
+    
+       
+        return (
+    
+          <View style ={styles.container}>
+            <Text>
+            
+            </Text>
+        
+          </View>
+    
+        );
+      }
+}
+
+export default springdeneme;
