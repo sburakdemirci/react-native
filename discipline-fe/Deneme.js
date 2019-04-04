@@ -8,7 +8,7 @@ class Deneme extends Component {
         spring:""
         
       }
-    
+  
       componentDidMount() {
         axios.get('http://192.168.1.34:8080/api/test1')
         .then(req => this.setState(

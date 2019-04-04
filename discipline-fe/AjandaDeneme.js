@@ -47,7 +47,7 @@ class AjandaDeneme extends Component {
       
          selectedDayColor="black"
          weekdays={['Pzt', 'Sal', 'Çrş', 'Perş', 'Cum', 'Cts', 'Pzr']}
-         months={['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']}
+         months={['Janeiro', 'Fevereiro', 'Março', 'Nisan', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']}
          previousTitle="Anterior"
           onDateChange={this.onDateChange}
           customDatesStyles={customDatesStyles}
@@ -66,6 +66,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
-    marginTop: 100,
+    marginTop: 10,
   },
 });

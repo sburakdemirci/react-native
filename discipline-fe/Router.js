@@ -3,6 +3,7 @@ import { Scene, Router } from 'react-native-router-flux'
 import React from 'react';
 import Deneme from './Deneme';
 import TestInput from './TestInput'
+import AjandaDeneme from './AjandaDeneme'
 
  const RouterComponent = () => {
 
@@ -10,8 +11,9 @@ import TestInput from './TestInput'
         
         <Router>
             <Scene key="root">
-            <Scene key="login" component={TestInput} title="dis is login" initial/>
+            <Scene key="login" component={TestInput} title="dis is login" />
             <Scene key="home" component={Deneme} title="dis is home" />
+            <Scene key="ajanda" component = { AjandaDeneme} title="" initial/>
             </Scene>
         </Router>
 
