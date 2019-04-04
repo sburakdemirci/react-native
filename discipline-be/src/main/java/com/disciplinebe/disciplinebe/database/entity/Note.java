@@ -1,4 +1,4 @@
-package com.disciplinebe.disciplinebe.model;
+package com.disciplinebe.disciplinebe.database.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;

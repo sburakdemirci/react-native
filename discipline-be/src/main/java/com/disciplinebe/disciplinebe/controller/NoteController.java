@@ -1,8 +1,10 @@
 package com.disciplinebe.disciplinebe.controller;
 
+import com.disciplinebe.disciplinebe.database.entity.UsersEntity;
+import com.disciplinebe.disciplinebe.database.repository.UsersRepository;
 import com.disciplinebe.disciplinebe.exception.ResourceNotFoundException;
-import com.disciplinebe.disciplinebe.model.Note;
-import com.disciplinebe.disciplinebe.repository.NoteRepository;
+import com.disciplinebe.disciplinebe.database.entity.Note;
+import com.disciplinebe.disciplinebe.database.repository.NoteRepository;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class NoteController {
+
+
+    @Autowired
+    UsersRepository usersRepository;
 
     @Autowired
     NoteRepository noteRepository;
@@ -41,6 +47,23 @@ public class NoteController {
     public Note createNote(@Valid @RequestBody Note note) {
         return noteRepository.save(note);
     }
+
+
+    @RequestMapping(method = RequestMethod.GET, value = "/login")
+    public boolean usersEntities(@RequestParam String email ,@RequestParam String password ) {
+
+        UsersEntity usersEntity = usersRepository.findByMail(email);
+
+        if(usersEntity.getPassword().equals(password))
+        {
+            return true;
+
+        }
+        return false;
+
+    }
+
+
 
     @RequestMapping(method = RequestMethod.GET, value = "/slm")
     public Note slm(){

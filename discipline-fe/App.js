@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {Button} from 'react-native';
 import TestInput from './TestInput'
+import Deneme from './Deneme'
+import  Router  from './Router'
+
 import {
   StyleSheet,
   Text,
@@ -12,10 +15,8 @@ export default class App extends Component {
   render() {
          
     return (
-      <View style={styles.deneme} >
-      <TestInput/>
-      </View>
-      
+      <Router/>
+  
     )
   }
 }
