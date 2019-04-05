@@ -13,9 +13,8 @@ import AjandaDeneme from './AjandaDeneme'
         <Router>
             <Scene key="root">
             <Scene key="login" component={TestInput} title="dis is login" />
-            <Scene key="home" component={Deneme} title="dis is home" />
+            <Scene key="home" component={Deneme} title="dis is home" initial />
             <Scene key="ajanda" component = {AjandaDeneme} title ="dis is ajanda"/>
-  
             </Scene>
         </Router>
 
