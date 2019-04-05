@@ -16,13 +16,16 @@ export default class EventList extends Component {
   render() {
     return (
     
-        <View style={{paddingTop:40}}>
+        <View style={{paddingTop:40, flexDirection:'row', justifyContent:'center'}}>
         <Text>{this.props.ll}</Text>
                 <ListView
                 dataSource={this.state.dataSource}
+                style={styles.listViesaw}
                 renderRow={(rowData) => 
-              <TouchableHighlight onPress={()=>{console.log("clicked-- data-->>",rowData)}}>
-              <Text>{rowData}</Text>
+              <TouchableHighlight 
+              style={{borderColor:'black',backgroundColor:'rgb(26, 198, 255)',marginTop:15,width:'80%',alignSelf:'center'}}
+              onPress={()=>{console.log("clicked-- data-->>",rowData)}}>
+              <Text style={{textAlign:'center',fontSize:30, color:'white'}}>{rowData}</Text>
                 </TouchableHighlight>}
               />
                 </View>
@@ -49,6 +52,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     height: 44,
   },
+  listView:{
+    flex:1,
+    alignItems: 'center'
+  }
 })
 
 // skip this line if using Create React Native App
