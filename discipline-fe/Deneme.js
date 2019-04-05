@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Button } from 'react-native';
+import {Actions} from 'react-native-router-flux'
 
 class Deneme extends Component {
    
@@ -10,7 +11,7 @@ class Deneme extends Component {
       }
     
       componentDidMount() {
-        axios.get('http://192.168.1.34:8080/api/test1')
+        axios.get('http://192.168.1.36:8080/api/test1')
         .then(req => this.setState(
           {spring:req.data}
         ))
@@ -23,6 +24,12 @@ class Deneme extends Component {
         <Text>
           {this.state.spring}
         </Text>
+        <Button title="sad" onPress= {()=>{
+          Actions.ajanda();
+        }
+        
+      }
+         />
     
           </View>
         );
