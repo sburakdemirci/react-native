@@ -25,7 +25,7 @@ export default class FloatingLabelExample extends Component {
         
         if(this.state.password!=='' && this.state.email!== '')
         {
-        axios.get('http://192.168.1.36:8080/api/login',{
+        axios.get('http://192.168.1.36:8080/api/signIn',{
             params:{
               
               email: this.state.email,
@@ -37,7 +37,7 @@ export default class FloatingLabelExample extends Component {
       
             if(req.data===true)
             {
-              Actions.home();
+              Actions.eventcalendar();
               console.log("true")
       
       
@@ -90,6 +90,7 @@ export default class FloatingLabelExample extends Component {
             <CardItem/>
             <Item regular style={{alignSelf:'center',width:'60%'}}>
             <Input style={{textAlign:'center'}}
+            secureTextEntry={true}
              placeholder='Parola'
              onChangeText={(password) => this.setState({password})}
              />
@@ -106,6 +107,15 @@ export default class FloatingLabelExample extends Component {
             }
               >
               <Text > Giriş </Text></Button>
+              <CardItem/>
+              <Button
+             style={{alignSelf:'center',width:'60%',justifyContent:'center'}}
+            success
+            onPress= {()=>{
+              Actions.signUp();
+            }}
+              >
+              <Text > Üye Ol </Text></Button>
             
             
         

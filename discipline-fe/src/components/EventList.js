@@ -43,7 +43,7 @@ export default class EventList extends Component {
   render() {
     return (
     
-        <View style={{paddingTop:40, justifyContent:'center',height:300}}>
+        <View style={{ justifyContent:'center',height:300}}>
         <Text>{this.props.ll}</Text>
                 <ListView
                 dataSource={this.state.dataSource}
@@ -51,7 +51,7 @@ export default class EventList extends Component {
                 renderRow={(rowData, sectionID, rowID) => 
                 
               <TouchableHighlight 
-              style={{borderColor:'black',backgroundColor:'rgb(26, 198, 255)',marginTop:15,width:'80%',alignSelf:'center'}}
+              style={{borderColor:'black',backgroundColor:'rgb(26, 198, 255)',marginBottom:15,width:'80%',alignSelf:'center'}}
               onPress={()=>this.clickedEventFind(rowID)}>
               <Text style={{flex:1,fontSize:25, color:'white'}}>{'-  '+rowData}</Text>
                 </TouchableHighlight>}

@@ -40,15 +40,17 @@ public class UsersController {
         newUser.setName(name);
         newUser.setEmail(email);
         newUser.setPassword(password);
-        try {
-            usersRepository.save(newUser);
-            return true;
-        }
-        catch (DataAccessException ex)
-        {
-            ex.printStackTrace();
-            return false;
-        }
+        UsersEntity userControl =usersRepository.findByMail(email);
+                if( userControl ==null ) {
+                    try {
+                        usersRepository.save(newUser);
+                        return true;
+                    } catch (DataAccessException ex) {
+                        ex.printStackTrace();
+                        return false;
+                    }
+                }
+                return false;
     }
 
 
