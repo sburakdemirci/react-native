@@ -58,3 +58,20 @@ class springdeneme extends Component {
 }
 
 export default springdeneme;
+
+
+
+
+
+<Calendar style={{paddingTop:100}}
+  // Collection of dates that have to be marked. Default = {}
+  markedDates={{
+    [this.state.date]: { selected: true },
+    '2019-04-18': {marked: true}
+    }}
+  minDate="2019-02-01"
+  onDayPress={
+    day => 
+   this.pressed(day)
+    }
+/>

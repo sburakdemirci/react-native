@@ -17,7 +17,6 @@ export default class TestInput extends Component {
 
   render() {
   
-
     return (
       <View style={{padding: 10}}>
         <TextInput
@@ -30,8 +29,7 @@ export default class TestInput extends Component {
         placeholder="Parolanızı giriniz"
         onChangeText={(password) => this.setState({password})}
         />
-
-
+        
         <Text>{this.state.spring}</Text>
         <Button  
   onPress={() => {

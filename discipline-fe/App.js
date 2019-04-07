@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import {Button} from 'react-native';
-import TestInput from './TestInput'
-import Deneme from './Deneme'
-import  Router  from './Router'
+import TestInput from './src/components/TestInput'
+import Deneme from './src/components/Deneme'
+import  Router  from './src/Router'
+import {Calendar,Agenda} from 'react-native-calendars'
+import EventList from './src/components/EventList'
+import CalendarComponent from './src/components/CalendarComponent'
+import Login from './src/components/Login'
+import EventListWithCalendar from './src/screens/EventListWithCalendar'
+
 
 import {
   StyleSheet,
@@ -11,11 +17,24 @@ import {
 } from 'react-native';
 
 export default class App extends Component {
- 
+ state=    this.state = {
+  date: ''
+
+};
+
+
   render() {
          
+    const vacation = {key:'vacation', color: 'red', selectedDotColor: 'blue'};
+const massage = {key:'massage', color: 'blue', selectedDotColor: 'blue'};
+const workout = {key:'workout', color: 'green'};
+var array = ['row 1', 'row 2']
+
     return (
-      <Router/>
+
+    
+     <Router/> 
+    
   
     )
   }

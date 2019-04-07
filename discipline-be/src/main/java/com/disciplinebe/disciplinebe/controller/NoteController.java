@@ -17,7 +17,7 @@ import java.util.List;
  * Created by rajeevkumarsingh on 27/06/17.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/note")
 public class NoteController {
 
 
@@ -49,19 +49,7 @@ public class NoteController {
     }
 
 
-    @RequestMapping(method = RequestMethod.GET, value = "/login")
-    public boolean usersEntities(@RequestParam String email ,@RequestParam String password ) {
 
-        UsersEntity usersEntity = usersRepository.findByMail(email);
-
-        if(usersEntity.getPassword().equals(password))
-        {
-            return true;
-
-        }
-        return false;
-
-    }
 
 
 
