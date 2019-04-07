@@ -25,11 +25,12 @@ class Deneme extends Component {
           {this.state.spring}
         </Text>
         <Button title="sad" onPress= {()=>{
-          Actions.ajanda();
+          Actions.eventcalendar();
         }
         
       }
          />
+
     
           </View>
         );

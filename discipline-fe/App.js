@@ -6,6 +6,8 @@ import  Router  from './src/Router'
 import {Calendar,Agenda} from 'react-native-calendars'
 import EventList from './src/components/EventList'
 import CalendarComponent from './src/components/CalendarComponent'
+import Login from './src/components/Login'
+import EventListWithCalendar from './src/screens/EventListWithCalendar'
 
 
 import {
@@ -30,12 +32,8 @@ var array = ['row 1', 'row 2']
 
     return (
 
-      <View>
-      <CalendarComponent/>
-      <EventList/>
-      </View>
-      
     
+     <Router/> 
     
   
     )

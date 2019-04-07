@@ -5,27 +5,55 @@ export default class EventList extends Component {
     constructor() {
         super();
        this.state={
-           library:['row 1', 'row 2'],
-         
+           library:['row 1', 'row 2','row 1', 'row 2','row 1', 'row 2','row 1', 'row 2','row 1', 'row 2'],
+           library1: [],
+           clickedEvent:'ss'
        }
         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         this.state = {
           dataSource: ds.cloneWithRows(this.state.library),
         };
       }  
+
+      //toDo 2 array yap. biri rowData'ları tutsun. diğeri db'deki eventId lerini tutsun. fonksiyon yaz onclick için
+      // fonksiyon sonucu diğer forma seçilenin unique id sini gönder. seçilen rowId 3 ise  eventidList[3]'yi gönder 
+      componentWillMount() {
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        var a=this.props.gecenprop
+        this.setState({
+          library:a,
+          dataSource:ds.cloneWithRows(a)
+         
+        })
+        console.log(this.state.library)
+      }
+
+      componentDidMount() {
+        
+        console.log(this.state.library)
+       
+      }
+
+      clickedEventFind(clicked){
+        this.props.clickedEventFinder(clicked)
+
+      }
+      
+      
   render() {
     return (
     
-        <View style={{paddingTop:40, flexDirection:'row', justifyContent:'center'}}>
+        <View style={{paddingTop:40, justifyContent:'center',height:300}}>
         <Text>{this.props.ll}</Text>
                 <ListView
                 dataSource={this.state.dataSource}
-                style={styles.listViesaw}
-                renderRow={(rowData) => 
+                style={styles.listViesw}
+                renderRow={(rowData, sectionID, rowID) => 
+                
               <TouchableHighlight 
               style={{borderColor:'black',backgroundColor:'rgb(26, 198, 255)',marginTop:15,width:'80%',alignSelf:'center'}}
-              onPress={()=>{console.log("clicked-- data-->>",rowData)}}>
-              <Text style={{textAlign:'center',fontSize:30, color:'white'}}>{rowData}</Text>
+              onPress={()=>this.clickedEventFind(rowID)}>
+              <Text style={{flex:1,fontSize:25, color:'white'}}>{'-  '+rowData}</Text>
                 </TouchableHighlight>}
               />
                 </View>
@@ -33,29 +61,6 @@ export default class EventList extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-   flex: 1,
-   paddingTop: 22
-  },
-  sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
-  },
-  listView:{
-    flex:1,
-    alignItems: 'center'
-  }
-})
+
 
 // skip this line if using Create React Native App
