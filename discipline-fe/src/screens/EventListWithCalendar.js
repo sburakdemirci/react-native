@@ -2,24 +2,46 @@ import React, { Component } from 'react'
 import {View,Text} from 'react-native'
 import CalendarComponent from '../components/CalendarComponent'
 import EventList from '../components/EventList'
+import axios from 'axios'
 
 export default class componentName extends Component {
 
-    constructor()
-    {
-        super()
-        this.state={
-            homeLink: 'default',
-            propp:['event1','event2','event3','event4','event5','event6','event7'],
+ 
+        state={
+            clickedDate: 'default',
+            eventsToPass:[''],
             clickedEvent:'sa'
         }
+    
+    componentDidMount() {
+
+        axios.get('http://192.168.1.36:8080/events/getEventByUserId',{
+            params:{
+              
+              userId: 1
+            }
+          })
+          .then(req => {
+              const data= req.data.map(
+                  
+                (eventname) => eventname.event_name)
+              console.log(data)
+              this.setState({
+                eventsToPass:data
+            })
+          //  console.log(this.state.eventsToPass)
+          this.forceUpdate()
+           
+          })   
+
     }
 
-    onChangeLinkName(newName)
+    
+
+    calendarClicked(newName)
     {
         this.setState({
-            homeLink:newName,
-            propp:[newName,newName]
+            clickedDate:newName
         })
 
     }//this kullanılınca bind kullanılır
@@ -33,13 +55,15 @@ export default class componentName extends Component {
 
     }
   render() {
+   
     return (
         <View>
-        <CalendarComponent changeLink={this.onChangeLinkName.bind(this)}/>  
-        <Text>{this.state.homeLink}</Text>
-        <Text>{this.state.clickedEvent}</Text>
-        <EventList gecenprop={this.state.propp} clickedEventFinder={this.onClickEventList.bind(this)} />
+        <CalendarComponent changeLink={this.calendarClicked.bind(this)}/>  
+
+        <EventList gecenprop={this.state.eventsToPass} clickedEventFinder={this.onClickEventList.bind(this)} />
         </View>
     )
   }
 }
+//   <Text>{this.state.clickedDate}</Text>
+//<Text>{this.state.clickedEvent}</Text>

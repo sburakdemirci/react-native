@@ -25,12 +25,25 @@ export default class EventList extends Component {
           dataSource:ds.cloneWithRows(a)
          
         })
-        console.log(this.state.library)
+      //  console.log(this.state.library)
       }
+
+      componentWillReceiveProps() {
+        
+      
+        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+        var a=this.props.gecenprop
+        this.setState({
+          library:a,
+          dataSource:ds.cloneWithRows(a)
+         
+        })
+      }
+      
 
       componentDidMount() {
         
-        console.log(this.state.library)
+      //  console.log(this.state.library)
        
       }
 

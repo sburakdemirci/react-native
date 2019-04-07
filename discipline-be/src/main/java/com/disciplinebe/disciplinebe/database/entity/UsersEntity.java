@@ -1,11 +1,16 @@
 package com.disciplinebe.disciplinebe.database.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "users")
+
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+
 
 public class UsersEntity {
     @Id
