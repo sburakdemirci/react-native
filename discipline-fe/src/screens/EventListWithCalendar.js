@@ -3,10 +3,16 @@ import {View,Text} from 'react-native'
 import CalendarComponent from '../components/CalendarComponent'
 import EventList from '../components/EventList'
 import axios from 'axios'
+import { REACT_APP_API_HOST_URL } from 'react-native-dotenv'
+
+
+
 
 export default class componentName extends Component {
 
- 
+
+  
+
         state={
             clickedDate: 'default',
             eventsToPass:[''],
@@ -15,7 +21,8 @@ export default class componentName extends Component {
     
     componentDidMount() {
 
-        axios.get('http://192.168.1.36:8080/events/getEventByUserId',{
+        console.log(REACT_APP_API_HOST_URL)
+        axios.get(REACT_APP_API_HOST_URL+'/events/getEventByUserId',{
             params:{
               
               userId: 1

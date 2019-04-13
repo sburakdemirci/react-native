@@ -5,19 +5,18 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import java.util.Date;
 
 
 @Entity
-@Table(name = "user_event")
+@Table(name = "user_routine")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 
-public class EventEntity {
+public class RoutineEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int event_id;
+    private int routine_id;
 
     @JsonManagedReference
     @ManyToOne(fetch = FetchType.LAZY)
@@ -25,10 +24,10 @@ public class EventEntity {
     private UsersEntity user_id;
 
     @Column
-    private String event_name;
+    private String routine_name;
 
     @Column
-    private Date event_date; // days can be numbers. eg. 1 for monday. so monday and tuesday 12.
+    private String selected_week_days; // days can be numbers. eg. 1 for monday. so monday and tuesday 12.
 
     @Column
     private int time_start;  // time slots 0-1440 . ın minutes
@@ -43,14 +42,14 @@ public class EventEntity {
     private int notification_time;
 
     @Column
-    private int event_note;
+    private int routine_note;
 
-    public int getEvent_id() {
-        return event_id;
+    public int getRoutine_id() {
+        return routine_id;
     }
 
-    public void setEvent_id(int event_id) {
-        this.event_id = event_id;
+    public void setRoutine_id(int routine_id) {
+        this.routine_id = routine_id;
     }
 
     public UsersEntity getUser_id() {
@@ -61,20 +60,20 @@ public class EventEntity {
         this.user_id = user_id;
     }
 
-    public String getEvent_name() {
-        return event_name;
+    public String getRoutine_name() {
+        return routine_name;
     }
 
-    public void setEvent_name(String event_name) {
-        this.event_name = event_name;
+    public void setRoutine_name(String routine_name) {
+        this.routine_name = routine_name;
     }
 
-    public Date getEvent_date() {
-        return event_date;
+    public String getSelected_days() {
+        return selected_week_days;
     }
 
-    public void setEvent_date(Date event_date) {
-        this.event_date = event_date;
+    public void setSelected_days(String selected_days) {
+        this.selected_week_days = selected_days;
     }
 
     public int getTime_start() {
@@ -109,12 +108,12 @@ public class EventEntity {
         this.notification_time = notification_time;
     }
 
-    public int getEvent_note() {
-        return event_note;
+    public int getRoutine_note() {
+        return routine_note;
     }
 
-    public void setEvent_note(int event_note) {
-        this.event_note = event_note;
+    public void setRoutine_note(int routine_note) {
+        this.routine_note = routine_note;
     }
 }
 

@@ -4,6 +4,7 @@ import {Button} from 'react-native';
 import { AppRegistry, Text, TextInput, View } from 'react-native';
 import axios from 'axios';
 import {Actions} from 'react-native-router-flux'
+import { REACT_APP_API_HOST_URL } from 'react-native-dotenv'
 
 export default class TestInput extends Component {
   constructor(props) {
@@ -34,7 +35,7 @@ export default class TestInput extends Component {
         <Button  
   onPress={() => {
 
-    axios.get('http://192.168.1.36:8080/api/login',{
+    axios.get(REACT_APP_API_HOST_URL+'/api/login',{
       params:{
         
         email: this.state.email,

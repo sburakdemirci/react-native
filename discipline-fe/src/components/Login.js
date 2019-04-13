@@ -5,6 +5,7 @@ import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import axios from 'axios'
 import {Actions} from 'react-native-router-flux'
+import { REACT_APP_API_HOST_URL } from 'react-native-dotenv'
 
 
 import { Container, Header, Content, Form, Item, Input,Left,Body,Title,Right,CardItem,Card, Label,Button,Text } from 'native-base';
@@ -25,7 +26,7 @@ export default class FloatingLabelExample extends Component {
         
         if(this.state.password!=='' && this.state.email!== '')
         {
-        axios.get('http://192.168.1.36:8080/api/signIn',{
+        axios.get(REACT_APP_API_HOST_URL+'/api/signIn',{
             params:{
               
               email: this.state.email,

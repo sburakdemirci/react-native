@@ -5,9 +5,7 @@ import Deneme from './src/components/Deneme'
 import  Router  from './src/Router'
 import {Calendar,Agenda} from 'react-native-calendars'
 import EventList from './src/components/EventList'
-import CalendarComponent from './src/components/CalendarComponent'
-import Login from './src/components/Login'
-import EventListWithCalendar from './src/screens/EventListWithCalendar'
+import TestQuestion from './src/components/TestQuestion'
 
 
 import {
@@ -23,6 +21,12 @@ export default class App extends Component {
 };
 
 
+pressed(day){
+  console.log(day.dateString)
+  this.setState({date: day.dateString})
+
+
+}
   render() {
          
     const vacation = {key:'vacation', color: 'red', selectedDotColor: 'blue'};
@@ -31,9 +35,8 @@ const workout = {key:'workout', color: 'green'};
 var array = ['row 1', 'row 2']
 
     return (
-
-    
-     <Router/> 
+     <Router/>
+    //<TestQuestion/>
     
   
     )

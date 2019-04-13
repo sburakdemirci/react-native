@@ -1,14 +1,9 @@
 package com.disciplinebe.disciplinebe.controller;
 
 
-
-
 import com.disciplinebe.disciplinebe.database.entity.EventEntity;
-import com.disciplinebe.disciplinebe.database.entity.UsersEntity;
 import com.disciplinebe.disciplinebe.database.repository.EventRepository;
 import com.disciplinebe.disciplinebe.database.repository.UsersRepository;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/events")
-public class EventController {
+public class QuotesController {
 
     @Autowired
     EventRepository eventRepository;
@@ -47,6 +42,9 @@ public class EventController {
     public List<EventEntity> getEventByUserId(@RequestParam Integer userId) {
         List<EventEntity> list = new ArrayList<>();
         list=eventRepository.findByUid(userId);
+
+
+
         return list;
 
     }

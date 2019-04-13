@@ -2,6 +2,7 @@ package com.disciplinebe.disciplinebe.database.entity;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -25,6 +26,24 @@ public class UsersEntity {
 
     @NotBlank
     private String password;
+
+    @Column
+    private String birth_date;
+
+    @Column
+    private String job;
+
+    @Column
+    private int discipline_level;
+
+
+
+    @JsonManagedReference
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "quote_id", nullable = false)
+    private QuotesEntity quote_id;
+
+
 
     public int getId() {
         return id;
@@ -56,5 +75,37 @@ public class UsersEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getBirth_date() {
+        return birth_date;
+    }
+
+    public void setBirth_date(String birth_date) {
+        this.birth_date = birth_date;
+    }
+
+    public String getJob() {
+        return job;
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public int getDiscipline_level() {
+        return discipline_level;
+    }
+
+    public void setDiscipline_level(int discipline_level) {
+        this.discipline_level = discipline_level;
+    }
+
+    public QuotesEntity getQuote_id() {
+        return quote_id;
+    }
+
+    public void setQuote_id(QuotesEntity quote_id) {
+        this.quote_id = quote_id;
     }
 }

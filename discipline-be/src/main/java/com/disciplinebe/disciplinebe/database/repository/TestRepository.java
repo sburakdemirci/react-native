@@ -1,22 +1,22 @@
 package com.disciplinebe.disciplinebe.database.repository;
 
 
-
-import java.util.List;
-
 import com.disciplinebe.disciplinebe.database.entity.EventEntity;
 
+import com.disciplinebe.disciplinebe.database.entity.TestEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 
 
-public interface EventRepository extends  JpaRepository<EventEntity,Integer> {
+public interface TestRepository extends  JpaRepository<TestEntity,Integer> {
 
     @Query(value = "SELECT * FROM events as ee Where ee.user_id = ?1",nativeQuery = true)
-    List<EventEntity> findByUid(int uid);
+    List<TestEntity> findByUid(int uid);
 
 
 
