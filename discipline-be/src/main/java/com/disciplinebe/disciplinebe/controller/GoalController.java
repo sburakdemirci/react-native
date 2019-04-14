@@ -34,10 +34,9 @@ public class GoalController {
         return goalDatabaseService.addGoal(goalModelRequest);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getEventByUserId")
+    @RequestMapping(method = RequestMethod.GET, value = "/getGoalsByUserId")
     public List<GoalEntity> getGoalByUserId(@RequestParam Integer userId) {
-        List<GoalEntity> goalEntity = new ArrayList<>();
-        return goalEntity;
+     return goalDatabaseService.getByUserId(userId);
 
 
 

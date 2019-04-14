@@ -30,16 +30,14 @@ public class EventController {
 
 
     @RequestMapping(method = RequestMethod.POST, value = "/addEvent")
-    public boolean addEvent(@RequestParam Integer userId, @RequestBody EventModelRequest eventRequest) {
+    public boolean addEvent( @RequestBody EventModelRequest eventRequest) {
 
         return eventDatabaseService.addEvent(eventRequest);
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getEventByUserId")
+    @RequestMapping(method = RequestMethod.GET, value = "/getEventsByUserId")
     public List<EventEntity> getEventByUserId(@RequestParam Integer userId) {
-        List<EventEntity> list = new ArrayList<>();
-       // list=eventRepository.findByUid(userId);
-        return list;
+        return eventDatabaseService.getEventByUserId(userId);
 
     }
 

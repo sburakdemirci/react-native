@@ -15,6 +15,10 @@ import java.util.List;
 
 public interface GoalRepository extends  JpaRepository<GoalEntity,Integer> {
 
+    @Query("SELECT ue From GoalEntity ue Where ue.goal_id = ?1")
+    List<GoalEntity> findByUid(int uid);
+
+
 
 
 

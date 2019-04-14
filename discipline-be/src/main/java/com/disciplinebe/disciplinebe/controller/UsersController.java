@@ -25,6 +25,14 @@ public class UsersController {
         return userService.addUser(userModelRequest);
     }
 
+    @RequestMapping(method = RequestMethod.GET, value = "/login")
+    public boolean login(@RequestParam String email, @RequestParam String password)
+    {
+        return userService.login(email,password);
+
+
+    }
+
 
 }
 

@@ -5,6 +5,7 @@ import com.disciplinebe.disciplinebe.database.entity.EventEntity;
 import com.disciplinebe.disciplinebe.database.entity.QuotesEntity;
 import com.disciplinebe.disciplinebe.database.repository.EventRepository;
 import com.disciplinebe.disciplinebe.database.repository.UsersRepository;
+import com.disciplinebe.disciplinebe.service.QuotesDatabaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,33 +20,23 @@ import java.util.List;
 public class QuotesController {
 
     @Autowired
-    EventRepository eventRepository;
+    QuotesDatabaseService quotesDatabaseService;
 
-    @Autowired
-    UsersRepository usersRepository;
 
     //toDo session yada token verebilirsin.
-    @RequestMapping(method = RequestMethod.GET, value = "/addEvent")
-    public boolean addQuote(@RequestParam Integer userId, @RequestParam String eventName) {
-        try {
-            EventEntity eventEntity = new EventEntity();
-            eventEntity.setEvent_name(eventName);
-            eventEntity.setUser_id(usersRepository.findByUid(userId));
-            eventRepository.save((eventEntity));
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+    @RequestMapping(method = RequestMethod.GET, value = "/addQuote")
+    public boolean addQuote(@RequestParam String qoute) {
+
+        return quotesDatabaseService.addQuote(qoute);
+
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getEventByUserId")
-    public String getEventById(@RequestParam Integer userId) {
+    @RequestMapping(method = RequestMethod.GET, value = "/getQuoteById")
+    public String getQuoteById(@RequestParam Integer quoteId) {
+
+        return quotesDatabaseService.getEntityById(quoteId).getQuote_string();
 
 
-
-
-        return "";
 
     }
 }

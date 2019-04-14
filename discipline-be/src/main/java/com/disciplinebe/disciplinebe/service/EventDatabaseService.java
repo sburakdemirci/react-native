@@ -18,6 +18,9 @@ public class EventDatabaseService {
     @Autowired
     UserService userService;
 
+    @Autowired
+    DateConvertService dateConvertService;
+
 
     public boolean addEvent(EventModelRequest eventModelRequest)
     {
@@ -25,7 +28,7 @@ public class EventDatabaseService {
 
        eventEntity.setUser_id(userService.getUserById(eventModelRequest.getUser_id()));
        eventEntity.setEvent_name(eventModelRequest.getEvent_name());
-       eventEntity.setEvent_date(eventModelRequest.getEvent_date());
+       eventEntity.setEvent_date(dateConvertService.stringToSqlDate(eventModelRequest.getEvent_date().toString()));
        eventEntity.setEvent_note(eventModelRequest.getEvent_note());
        eventEntity.setNotification_enabled(eventModelRequest.isNotification_enabled());
        eventEntity.setNotification_time(eventModelRequest.getNotification_time());

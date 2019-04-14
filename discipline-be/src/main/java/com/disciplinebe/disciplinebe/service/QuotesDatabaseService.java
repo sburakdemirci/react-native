@@ -11,11 +11,26 @@ public class QuotesDatabaseService {
     @Autowired
     QuotesRepository quotesRepository;
 
-    public QuotesEntity findById(int quoteId)
+    public QuotesEntity getEntityById(int quoteId)
     {
         QuotesEntity quotesEntity= quotesRepository.findById(quoteId);
         return quotesEntity;
 
+    }
 
+    public boolean addQuote(String quote)
+    {
+        QuotesEntity quotesEntity = new QuotesEntity();
+        quotesEntity.setQuote_string(quote);
+
+        try {
+            quotesRepository.save(quotesEntity);
+            return true;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

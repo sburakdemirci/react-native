@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class GoalDatabaseService {
@@ -20,21 +22,10 @@ public class GoalDatabaseService {
     @Autowired
     GoalRepository goalRepository;
 
+    @Autowired
+    DateConvertService dateConvertService;
+
     public boolean addGoal(GoalModelRequest goalModelRequest){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date=new Date();
-        try {
-             date = sdf.parse(goalModelRequest.getDeadline().toString());
-
-        }catch (Exception e)
-        {
-            e.printStackTrace();
-            return false;
-        }
-        java.sql.Date dateSql= new java.sql.Date(date.getTime());
-       
-
-
 
 
         GoalEntity goalEntity=new GoalEntity();
@@ -42,7 +33,7 @@ public class GoalDatabaseService {
         goalEntity.setUser_id(userService.getUserById(goalModelRequest.getUser_id()));
         if(goalEntity.getUser_id()==null) return false;
         goalEntity.setGoal_name(goalModelRequest.getGoal_name());
-        goalEntity.setDeadline(dateSql);
+        goalEntity.setDeadline(dateConvertService.stringToSqlDate(goalModelRequest.getDeadline().toString()));
         goalEntity.setGoal_note(goalModelRequest.getGoal_note());
         goalEntity.setOrder_of_priority(1);
         goalEntity.setSelected_week_days(goalModelRequest.getSelected_week_days());
@@ -62,6 +53,14 @@ public class GoalDatabaseService {
             return false;
 
         }
+    }
+
+    public List<GoalEntity> getByUserId(int userId)
+    {
+        List<GoalEntity> goalEntities = new ArrayList<>();
+        goalEntities= goalRepository.findByUid(userId);
+        return goalEntities;
+
     }
 
 

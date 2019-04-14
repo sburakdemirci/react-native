@@ -14,7 +14,8 @@ import java.util.List;
 
 public interface RoutineRepository extends  JpaRepository<RoutineEntity,Integer> {
 
-
+    @Query("SELECT ue From RoutineEntity ue Where ue.routine_id = ?1")
+    List<RoutineEntity> findByUid(int uid);
 
 
 
