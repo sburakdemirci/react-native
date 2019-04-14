@@ -42,7 +42,7 @@ public class RoutineEntity {
     private int notification_time;
 
     @Column
-    private int routine_note;
+    private String routine_note;
 
     public int getRoutine_id() {
         return routine_id;
@@ -108,11 +108,19 @@ public class RoutineEntity {
         this.notification_time = notification_time;
     }
 
-    public int getRoutine_note() {
+    public String getSelected_week_days() {
+        return selected_week_days;
+    }
+
+    public void setSelected_week_days(String selected_week_days) {
+        this.selected_week_days = selected_week_days;
+    }
+
+    public String getRoutine_note() {
         return routine_note;
     }
 
-    public void setRoutine_note(int routine_note) {
+    public void setRoutine_note(String routine_note) {
         this.routine_note = routine_note;
     }
 }

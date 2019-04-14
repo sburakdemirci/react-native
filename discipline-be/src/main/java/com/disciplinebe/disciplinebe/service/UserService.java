@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
+import javax.jws.soap.SOAPBinding;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +79,18 @@ public class UserService {
         return false;
     }
 
+    public boolean updateUser(UsersEntity usersEntity)
+    {
+        try {
+            usersRepository.save(usersEntity);
+            return true;
 
+        }catch (Exception e)
+        {
+            return  false;
+        }
+
+    }
 
 
 }

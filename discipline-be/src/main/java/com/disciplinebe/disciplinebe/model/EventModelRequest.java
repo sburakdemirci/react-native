@@ -30,7 +30,7 @@ public class EventModelRequest {
     private int notification_time;
 
     @JsonProperty
-    private int event_note;
+    private String event_note;
 
     public int getUser_id() {
         return user_id;
@@ -88,11 +88,11 @@ public class EventModelRequest {
         this.notification_time = notification_time;
     }
 
-    public int getEvent_note() {
+    public String getEvent_note() {
         return event_note;
     }
 
-    public void setEvent_note(int event_note) {
+    public void setEvent_note(String event_note) {
         this.event_note = event_note;
     }
 }

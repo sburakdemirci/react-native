@@ -43,7 +43,7 @@ public class EventEntity {
     private int notification_time;
 
     @Column
-    private int event_note;
+    private String event_note;
 
     public int getEvent_id() {
         return event_id;
@@ -109,13 +109,11 @@ public class EventEntity {
         this.notification_time = notification_time;
     }
 
-    public int getEvent_note() {
-        return event_note;
-    }
-
-    public void setEvent_note(int event_note) {
+    public void setEvent_note(String event_note) {
         this.event_note = event_note;
     }
+
+
 }
 
 
