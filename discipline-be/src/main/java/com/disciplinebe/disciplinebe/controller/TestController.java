@@ -24,7 +24,7 @@ public class TestController {
     UsersRepository usersRepository;
 
     //toDo session yada token verebilirsin.
-    @RequestMapping(method = RequestMethod.GET, value = "/addEvent")
+    @RequestMapping(method = RequestMethod.GET, value = "/addQuestion")
     public boolean addQuestion(@RequestParam Integer userId, @RequestParam String eventName) {
         try {
             EventEntity eventEntity = new EventEntity();
@@ -38,7 +38,7 @@ public class TestController {
         }
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getEventByUserId")
+    @RequestMapping(method = RequestMethod.GET, value = "/getAllQuestions")
     public List<EventEntity> getAllQuestions(@RequestParam Integer userId) {
         List<EventEntity> list = new ArrayList<>();
         list=eventRepository.findByUid(userId);

@@ -40,12 +40,7 @@ public class UsersController {
 
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/deneme")
-    public void deneme(@RequestParam Date email, @RequestParam Date password)
-    {
 
-
-    }
 
 
 
