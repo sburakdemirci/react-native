@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/events")
+@RequestMapping("/test")
 public class TestController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class TestController {
 
     //toDo session yada token verebilirsin.
     @RequestMapping(method = RequestMethod.GET, value = "/addEvent")
-    public boolean addEvent(@RequestParam Integer userId, @RequestParam String eventName) {
+    public boolean addQuestion(@RequestParam Integer userId, @RequestParam String eventName) {
         try {
             EventEntity eventEntity = new EventEntity();
             eventEntity.setEvent_name(eventName);
@@ -39,7 +39,7 @@ public class TestController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/getEventByUserId")
-    public List<EventEntity> getEventByUserId(@RequestParam Integer userId) {
+    public List<EventEntity> getAllQuestions(@RequestParam Integer userId) {
         List<EventEntity> list = new ArrayList<>();
         list=eventRepository.findByUid(userId);
 

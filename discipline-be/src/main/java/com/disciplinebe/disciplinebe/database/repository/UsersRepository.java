@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 
 
-public interface UsersRepository extends JpaRepository<UsersEntity, Long> {
+public interface UsersRepository extends JpaRepository<UsersEntity, Integer> {
 
     @Query("SELECT ue From UsersEntity ue Where ue.id = ?1")
     UsersEntity findByUid(int uid);

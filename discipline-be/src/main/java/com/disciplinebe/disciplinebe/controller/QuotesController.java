@@ -2,6 +2,7 @@ package com.disciplinebe.disciplinebe.controller;
 
 
 import com.disciplinebe.disciplinebe.database.entity.EventEntity;
+import com.disciplinebe.disciplinebe.database.entity.QuotesEntity;
 import com.disciplinebe.disciplinebe.database.repository.EventRepository;
 import com.disciplinebe.disciplinebe.database.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/events")
+@RequestMapping("/quotes")
 public class QuotesController {
 
     @Autowired
@@ -25,7 +26,7 @@ public class QuotesController {
 
     //toDo session yada token verebilirsin.
     @RequestMapping(method = RequestMethod.GET, value = "/addEvent")
-    public boolean addEvent(@RequestParam Integer userId, @RequestParam String eventName) {
+    public boolean addQuote(@RequestParam Integer userId, @RequestParam String eventName) {
         try {
             EventEntity eventEntity = new EventEntity();
             eventEntity.setEvent_name(eventName);
@@ -39,13 +40,12 @@ public class QuotesController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/getEventByUserId")
-    public List<EventEntity> getEventByUserId(@RequestParam Integer userId) {
-        List<EventEntity> list = new ArrayList<>();
-        list=eventRepository.findByUid(userId);
+    public String getEventById(@RequestParam Integer userId) {
 
 
 
-        return list;
+
+        return "";
 
     }
 }

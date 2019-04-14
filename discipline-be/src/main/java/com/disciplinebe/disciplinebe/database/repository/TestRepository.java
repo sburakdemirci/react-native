@@ -15,8 +15,6 @@ import java.util.List;
 
 public interface TestRepository extends  JpaRepository<TestEntity,Integer> {
 
-    @Query(value = "SELECT * FROM events as ee Where ee.user_id = ?1",nativeQuery = true)
-    List<TestEntity> findByUid(int uid);
 
 
 

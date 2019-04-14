@@ -2,19 +2,19 @@ package com.disciplinebe.disciplinebe.controller;
 
 
 import com.disciplinebe.disciplinebe.database.entity.EventEntity;
+import com.disciplinebe.disciplinebe.database.entity.GoalEntity;
 import com.disciplinebe.disciplinebe.database.repository.EventRepository;
 import com.disciplinebe.disciplinebe.database.repository.UsersRepository;
+import com.disciplinebe.disciplinebe.model.GoalModelRequest;
+import com.disciplinebe.disciplinebe.service.GoalDatabaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/events")
+@RequestMapping("/goals")
 public class GoalController {
 
     @Autowired
@@ -23,29 +23,24 @@ public class GoalController {
     @Autowired
     UsersRepository usersRepository;
 
+    @Autowired
+    GoalDatabaseService goalDatabaseService;
+
     //toDo session yada token verebilirsin.
-    @RequestMapping(method = RequestMethod.GET, value = "/addEvent")
-    public boolean addEvent(@RequestParam Integer userId, @RequestParam String eventName) {
-        try {
-            EventEntity eventEntity = new EventEntity();
-            eventEntity.setEvent_name(eventName);
-            eventEntity.setUser_id(usersRepository.findByUid(userId));
-            eventRepository.save((eventEntity));
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/addGoal")
+    public boolean addGoal(@RequestBody GoalModelRequest goalModelRequest) {
+
+        return goalDatabaseService.addGoal(goalModelRequest);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/getEventByUserId")
-    public List<EventEntity> getEventByUserId(@RequestParam Integer userId) {
-        List<EventEntity> list = new ArrayList<>();
-        list=eventRepository.findByUid(userId);
+    public List<GoalEntity> getGoalByUserId(@RequestParam Integer userId) {
+        List<GoalEntity> goalEntity = new ArrayList<>();
+        return goalEntity;
 
 
 
-        return list;
 
     }
 }

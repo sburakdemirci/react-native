@@ -14,8 +14,6 @@ import java.util.List;
 
 public interface RoutineRepository extends  JpaRepository<RoutineEntity,Integer> {
 
-    @Query(value = "SELECT * FROM events as ee Where ee.user_id = ?1",nativeQuery = true)
-    List<RoutineEntity> findByUid(int uid);
 
 
 

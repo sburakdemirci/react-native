@@ -1,63 +1,42 @@
-package com.disciplinebe.disciplinebe.database.entity;
+package com.disciplinebe.disciplinebe.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.*;
 import java.sql.Date;
 
 
-@Entity
-@Table(name = "user_event")
-@EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class EventModelRequest {
 
-public class EventEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int event_id;
+    @JsonProperty
+    private int user_id;
 
-    @JsonManagedReference
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private UsersEntity user_id;
-
-    @Column
+    @JsonProperty
     private String event_name;
 
-    @Column
-    private Date event_date; // days can be numbers. eg. 1 for monday. so monday and tuesday 12.
+    @JsonProperty
+    private Date event_date;
 
-    @Column
+    @JsonProperty
     private int time_start;  // time slots 0-1440 . ın minutes
 
-    @Column
+    @JsonProperty
     private int time_finish;   // time slots 0-1440 . ın minutes
 
-    @Column
+    @JsonProperty
     private boolean notification_enabled;
 
-    @Column
+    @JsonProperty
     private int notification_time;
 
-    @Column
+    @JsonProperty
     private int event_note;
 
-    public int getEvent_id() {
-        return event_id;
-    }
-
-    public void setEvent_id(int event_id) {
-        this.event_id = event_id;
-    }
-
-    public UsersEntity getUser_id() {
+    public int getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(UsersEntity user_id) {
+    public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
 
@@ -73,7 +52,7 @@ public class EventEntity {
         return event_date;
     }
 
-    public void setEvent_date(java.sql.Date event_date) {
+    public void setEvent_date(Date event_date) {
         this.event_date = event_date;
     }
 
@@ -117,8 +96,3 @@ public class EventEntity {
         this.event_note = event_note;
     }
 }
-
-
-
-
-

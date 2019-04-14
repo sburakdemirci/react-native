@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.sql.Date;
 
 @Entity
 @Table(name = "users")
@@ -18,6 +19,7 @@ public class UsersEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+
     @NotBlank
     private String name;
 
@@ -28,7 +30,7 @@ public class UsersEntity {
     private String password;
 
     @Column
-    private String birth_date;
+    private Date birth_date;
 
     @Column
     private String job;
@@ -77,11 +79,11 @@ public class UsersEntity {
         this.password = password;
     }
 
-    public String getBirth_date() {
+    public Date getBirth_date() {
         return birth_date;
     }
 
-    public void setBirth_date(String birth_date) {
+    public void setBirth_date(Date birth_date) {
         this.birth_date = birth_date;
     }
 

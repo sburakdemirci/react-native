@@ -1,74 +1,53 @@
-package com.disciplinebe.disciplinebe.database.entity;
+package com.disciplinebe.disciplinebe.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import javax.persistence.*;
 import java.sql.Date;
 
 
-@Entity
-@Table(name = "user_goal")
-@EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-
-public class GoalEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int goal_id;
-
-    @JsonManagedReference
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
-    private UsersEntity user_id;
-//dikkat edersen burada diğer tablonun entity'sini column olarak veriyoruz.
+public class GoalModelRequest {
 
 
-    @Column
+
+
+    @JsonProperty
+    private int user_id;
+
+    @JsonProperty
     private String goal_name;
 
-    @Column
+    @JsonProperty
     private int weekly_work_hours;
 
-    @Column
+    @JsonProperty
     private Date deadline;
 
-    @Column
+    @JsonProperty
     private String selected_week_days; //will be  12 for monday and tuesday
 
-    @Column
+    @JsonProperty
     private int time_zone_starts;
 
-    @Column
+    @JsonProperty
     private int time_zone_finish;
 
-    @Column
+    @JsonProperty
     private long calculated_hours;
 
-    @Column
-    private long complated_hours=0; // buraya null değil 0 ver
+    @JsonProperty
+    private long complated_hours; // buraya null değil 0 ver
 
-    @Column
+    @JsonProperty
     private int order_of_priority;
 
-    @Column
+    @JsonProperty
     private String goal_note;
 
-    public int getGoal_id() {
-        return goal_id;
-    }
-
-    public void setGoal_id(int goal_id) {
-        this.goal_id = goal_id;
-    }
-
-    public UsersEntity getUser_id() {
+    public int getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(UsersEntity user_id) {
+    public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
 
@@ -92,16 +71,16 @@ public class GoalEntity {
         return deadline;
     }
 
-    public void setDeadline(java.sql.Date deadline) {
+    public void setDeadline(Date deadline) {
         this.deadline = deadline;
-    }
-
-    public String getSelected_week_days() {
-        return selected_week_days;
     }
 
     public void setSelected_week_days(String selected_week_days) {
         this.selected_week_days = selected_week_days;
+    }
+
+    public String getSelected_week_days() {
+        return selected_week_days;
     }
 
     public int getTime_zone_starts() {
@@ -152,8 +131,3 @@ public class GoalEntity {
         this.goal_note = goal_note;
     }
 }
-
-
-
-
-

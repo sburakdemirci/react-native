@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/events")
+@RequestMapping("/routines")
 public class RoutineController {
 
     @Autowired
@@ -25,7 +25,7 @@ public class RoutineController {
 
     //toDo session yada token verebilirsin.
     @RequestMapping(method = RequestMethod.GET, value = "/addEvent")
-    public boolean addEvent(@RequestParam Integer userId, @RequestParam String eventName) {
+    public boolean addRoutine(@RequestParam Integer userId, @RequestParam String eventName) {
         try {
             EventEntity eventEntity = new EventEntity();
             eventEntity.setEvent_name(eventName);
