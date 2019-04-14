@@ -32,6 +32,5 @@ public class RoutineController {
     public List<RoutineEntity> getRoutinesByUserId(@RequestParam Integer userId) {
         return routineDatabaseService.findByUserId(userId);
 
-
     }
 }

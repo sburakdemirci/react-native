@@ -45,10 +45,10 @@ public class GoalEntity {
     private int time_zone_finish;
 
     @Column
-    private long calculated_hours;
+    private int calculated_minutes;
 
     @Column
-    private long complated_hours=0; // buraya null değil 0 ver
+    private int complated_minutes; // buraya null değil 0 ver
 
     @Column
     private int order_of_priority;
@@ -120,20 +120,20 @@ public class GoalEntity {
         this.time_zone_finish = time_zone_finish;
     }
 
-    public long getCalculated_hours() {
-        return calculated_hours;
+    public int getCalculated_minutes() {
+        return calculated_minutes;
     }
 
-    public void setCalculated_hours(long calculated_hours) {
-        this.calculated_hours = calculated_hours;
+    public void setCalculated_minutes(int calculated_minutes) {
+        this.calculated_minutes = calculated_minutes;
     }
 
-    public long getComplated_hours() {
-        return complated_hours;
+    public int getComplated_minutes() {
+        return complated_minutes;
     }
 
-    public void setComplated_hours(long complated_hours) {
-        this.complated_hours = complated_hours;
+    public void setComplated_minutes(int complated_minutes) {
+        this.complated_minutes = complated_minutes;
     }
 
     public int getOrder_of_priority() {

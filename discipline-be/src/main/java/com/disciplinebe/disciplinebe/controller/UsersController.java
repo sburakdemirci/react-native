@@ -3,11 +3,15 @@ package com.disciplinebe.disciplinebe.controller;
 import com.disciplinebe.disciplinebe.database.entity.UsersEntity;
 import com.disciplinebe.disciplinebe.database.repository.UsersRepository;
 import com.disciplinebe.disciplinebe.model.UserModelRequest;
+import com.disciplinebe.disciplinebe.service.DisciplineService;
+import com.disciplinebe.disciplinebe.service.GoalDatabaseService;
 import com.disciplinebe.disciplinebe.service.UserService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.Date;
 
 @RestController
 @RequestMapping("/users")
@@ -18,6 +22,9 @@ public class UsersController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    GoalDatabaseService disciplineService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/signUp")
     public boolean addUser(@RequestBody UserModelRequest userModelRequest) {
@@ -32,6 +39,14 @@ public class UsersController {
 
 
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/deneme")
+    public void deneme(@RequestParam Date email, @RequestParam Date password)
+    {
+
+
+    }
+
 
 
 }

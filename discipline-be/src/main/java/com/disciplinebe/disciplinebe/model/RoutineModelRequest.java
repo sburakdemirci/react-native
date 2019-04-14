@@ -26,7 +26,7 @@ public class RoutineModelRequest {
     private int notification_time;
 
     @JsonProperty
-    private int routine_note;
+    private String routine_note;
 
     public int getUser_id() {
         return user_id;
@@ -84,11 +84,12 @@ public class RoutineModelRequest {
         this.notification_time = notification_time;
     }
 
-    public int getRoutine_note() {
+    public String getRoutine_note() {
         return routine_note;
     }
 
-    public void setRoutine_note(int routine_note) {
+    public void setRoutine_note(String routine_note) {
         this.routine_note = routine_note;
     }
 }
+
