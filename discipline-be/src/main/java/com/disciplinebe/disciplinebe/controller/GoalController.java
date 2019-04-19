@@ -39,7 +39,7 @@ public class GoalController {
      return goalDatabaseService.getByUserId(userId);
 
 
-
-
     }
+
+    // goal eklendiği zaman da slot controller çalışacak
 }

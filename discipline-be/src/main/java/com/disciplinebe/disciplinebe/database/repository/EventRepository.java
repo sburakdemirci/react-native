@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 
 public interface EventRepository extends  JpaRepository<EventEntity,Integer> {
 
-    @Query("SELECT ue From EventEntity ue Where ue.event_id = ?1")
+    @Query(value = "SELECT * FROM user_event as event WHERE event.user_id= ?1", nativeQuery = true)
     List<EventEntity> findByUid(int uid);
 
 

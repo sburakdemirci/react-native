@@ -35,6 +35,9 @@ public class DisciplineService {
         }
     }
 
+    //todo test resultlar direk olarak int olarak gelecek. react dan
+    // buraya. daha sonrasında questionların , answers ve userid'lerin tutuldugu bir tabloya yazarsın ve ordan hesaplarsın
+
 
 
 

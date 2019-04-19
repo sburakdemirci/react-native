@@ -28,7 +28,7 @@ public class EventController {
 
     //toDo session yada token verebilirsin.
 
-
+// todo jwt token en son yaklaşık 4 saatini alır. 1 saat video 3 saat bug vs
     @RequestMapping(method = RequestMethod.POST, value = "/addEvent")
     public boolean addEvent( @RequestBody EventModelRequest eventRequest) {
 
@@ -41,5 +41,6 @@ public class EventController {
 
     }
 
+    // event eklendiği zaman slot controller çalışacal
     //toDo pathvariable ve requestparam arasındaki farklı öğren ve diğer annotations'ları
 }

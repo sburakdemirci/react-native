@@ -19,31 +19,34 @@ export default class componentName extends Component {
             clickedEvent:'sa'
         }
     
-    componentDidMount() {
+    componentWillMount() {
 
         console.log(REACT_APP_API_HOST_URL)
-        axios.get(REACT_APP_API_HOST_URL+'/events/getEventByUserId',{
+       axios.get(REACT_APP_API_HOST_URL+'/event/getEventsByUserId',{
             params:{
               
               userId: 1
             }
           })
           .then(req => {
-              const data= req.data.map(
-                  
-                (eventname) => eventname.event_name)
-              console.log(data)
+       
+              var data= req.data.map(
+                
+                (eventname) => eventname.event_name
+              
+                )
+              
+           
               this.setState({
                 eventsToPass:data
             })
-          //  console.log(this.state.eventsToPass)
           this.forceUpdate()
+
+           
+          //  console.log(this.state.eventsToPass
            
           })   
-
     }
-
-    
 
     calendarClicked(newName)
     {

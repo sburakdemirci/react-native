@@ -40,7 +40,7 @@ public class GoalDatabaseService {
         goalEntity.setDeadline(dateConvertService.stringToSqlDate(goalModelRequest.getDeadline().toString()));
         goalEntity.setGoal_note(goalModelRequest.getGoal_note());
         goalEntity.setOrder_of_priority(1);
-        goalEntity.setSelected_week_days(goalModelRequest.getSelected_week_days());
+        goalEntity.setFree_week_days(goalModelRequest.getSelected_week_days());
         goalEntity.setCalculated_minutes(calculateTotalMinutes(goalModelRequest.getWeekly_work_hours(),goalModelRequest.getDeadline()));
         goalEntity.setComplated_minutes(0);
 
@@ -71,7 +71,6 @@ public class GoalDatabaseService {
     {
         Date today= new Date(Calendar.getInstance().getTime().getTime());
 
-        //toDo Deadline'dan today'ı çıkartacaksın.
        long numOfWeeks = ChronoUnit.WEEKS.between(today.toLocalDate(),deadLine.toLocalDate());
        int returnValue =(int)numOfWeeks;
 

@@ -49,3 +49,4 @@ public class RoutineDatabaseService {
         return  routineEntities;
     }
 }
+// todo  n routine eklediğin zaman çakışma olursa bildirim göndersin. ve kullanıcıdan kontrol etmesini isteyebilir. yada bir işlem yapmayıp aynı saatte 2 tane işleme olabilir

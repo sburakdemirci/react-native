@@ -39,4 +39,5 @@ public class QuotesController {
 
 
     }
+    // instagramdan yada disiplin sözleri yazarak yaklaşık 100 tane söz ekle. pop up pencere olarak gösterebilirsin.
 }

@@ -27,3 +27,6 @@ public class DateConvertService {
     }
 
 }
+
+
+//toDo buranın adını date time services olarak değiştirip goaldb service'deki saat date fonksiyonlarını buraya çekebilirsin..

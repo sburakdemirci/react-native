@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {  View } from 'react-native'
 import { Container, Header, Content, Item, Input,CardItem,Button,Text,CheckBox,Body,Spinner,Footer } from 'native-base';
 import { Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
@@ -30,6 +29,7 @@ export default class TestQuestion extends Component {
     }
     else{
       return (
+        
         <Container style={{paddingTop:'5%'}}>
         <Header >
           <Text style={{fontSize:22, color:'white',fontWeight:'bold',paddingTop:'2%'}}>Disiplin Testi</Text>

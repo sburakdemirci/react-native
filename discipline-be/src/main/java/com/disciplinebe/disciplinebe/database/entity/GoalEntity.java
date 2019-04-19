@@ -36,7 +36,7 @@ public class GoalEntity {
     private Date deadline;
 
     @Column
-    private String selected_week_days; //will be  12 for monday and tuesday
+    private String free_week_days; //will be  12 for monday and tuesday
 
     @Column
     private int time_zone_starts;
@@ -96,12 +96,12 @@ public class GoalEntity {
         this.deadline = deadline;
     }
 
-    public String getSelected_week_days() {
-        return selected_week_days;
+    public String getFree_week_days() {
+        return free_week_days;
     }
 
-    public void setSelected_week_days(String selected_week_days) {
-        this.selected_week_days = selected_week_days;
+    public void setFree_week_days(String free_week_days) {
+        this.free_week_days = free_week_days;
     }
 
     public int getTime_zone_starts() {

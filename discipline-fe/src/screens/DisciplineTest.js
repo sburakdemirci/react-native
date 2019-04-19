@@ -5,9 +5,9 @@ import TestQuestion from '../components/TestQuestion'
 export default class DisciplineTest extends Component {
   render() {
     return (
-      <View>
+    
       <TestQuestion/>
-      </View>
+      
     )
   }
 }

@@ -51,12 +51,12 @@ public class EventDatabaseService {
     public List<EventEntity> getEventByUserId(int userId) {
         List<EventEntity> list = new ArrayList<>();
          list=eventRepository.findByUid(userId);
+        System.out.println(list);
         return list;
     }
 
 
+// todo
 
 
-    //todo add event
-    //todo get all eventsByuser
 }

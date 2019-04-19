@@ -34,3 +34,4 @@ public class RoutineController {
 
     }
 }
+//todo günleri eklerken dropdown checkbox'lar kullan

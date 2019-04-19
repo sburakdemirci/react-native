@@ -15,7 +15,7 @@ import java.util.List;
 
 public interface GoalRepository extends  JpaRepository<GoalEntity,Integer> {
 
-    @Query("SELECT ue From GoalEntity ue Where ue.goal_id = ?1")
+    @Query(value = "SELECT * FROM user_goal as goals WHERE goals.user_id= ?1", nativeQuery = true)
     List<GoalEntity> findByUid(int uid);
 
 

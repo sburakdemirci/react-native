@@ -9,43 +9,26 @@ export default class EventList extends Component {
            library1: [],
            clickedEvent:'ss'
        }
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        this.state = {
-          dataSource: ds.cloneWithRows(this.state.library),
-        };
+       this.dataSource= new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+
       }  
 
       //toDo 2 array yap. biri rowData'ları tutsun. diğeri db'deki eventId lerini tutsun. fonksiyon yaz onclick için
       // fonksiyon sonucu diğer forma seçilenin unique id sini gönder. seçilen rowId 3 ise  eventidList[3]'yi gönder 
-      componentWillMount() {
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        var a=this.props.gecenprop
-        this.setState({
-          library:a,
-          dataSource:ds.cloneWithRows(a)
-         
-        })
-      //  console.log(this.state.library)
-      }
+  
 
-      componentWillReceiveProps() {
-        
+      componentWillReceiveProps() {   
+ 
       
-        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
         var a=this.props.gecenprop
         this.setState({
-          library:a,
-          dataSource:ds.cloneWithRows(a)
+          library:a
          
         })
       }
       
 
-      componentDidMount() {
-        
-      //  console.log(this.state.library)
-       
-      }
+   
 
       clickedEventFind(clicked){
         this.props.clickedEventFinder(clicked)
@@ -59,7 +42,7 @@ export default class EventList extends Component {
         <View style={{ justifyContent:'center',height:300}}>
         <Text>{this.props.ll}</Text>
                 <ListView
-                dataSource={this.state.dataSource}
+                dataSource={this.dataSource.cloneWithRows(this.state.library)}
                 style={styles.listViesw}
                 renderRow={(rowData, sectionID, rowID) => 
                 

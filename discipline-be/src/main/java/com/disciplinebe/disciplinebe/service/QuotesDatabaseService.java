@@ -34,3 +34,5 @@ public class QuotesDatabaseService {
         }
     }
 }
+
+//todo söz kullanıcıya gösterildikten sonra controller ile userid param olarak al ve bu classda yazacağın servis , kullanıcının son gösterilen quote'sini güncellesin.  bir arttırıp bidakine geçsin
