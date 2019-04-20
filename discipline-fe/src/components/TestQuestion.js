@@ -20,11 +20,17 @@ export default class TestQuestion extends Component {
       });
       this.setState({ loading: false });
     }
+
+
+    questionAnswered(clicked){
+      this.props.questionAnsweredChange(clicked)
+    }
+
+
   render() {
   
     if(this.state.loading)
-    { return <Spinner/>
-      
+    { return <Spinner/>    
 
     }
     else{
@@ -37,10 +43,7 @@ export default class TestQuestion extends Component {
         <Content padder>
         <CardItem style={{marginBottom:'10%',paddingTop:'10%', borderRadius:20,borderWidth:1,borderColor:'blue'}}>
           <Text >
-            Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   
-            Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   
-            Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   Soru kısmı   
-
+              {this.props.question}
           </Text>
  
           </CardItem>
@@ -48,37 +51,37 @@ export default class TestQuestion extends Component {
               <Button
                style={{alignSelf:'center',width:'80%',justifyContent:'center'}}
               success
-          
-                >
-                <Text > 1. cevap </Text></Button>
+              onPress={()=>this.questionAnswered(1)}>
+                
+                <Text > {this.props.answer_1} </Text></Button>
                 <CardItem/>
                
               <Button
                style={{alignSelf:'center',width:'80%',justifyContent:'center'}}
               success          
-                >
-                <Text > 2. cevap </Text></Button>
+              onPress={()=>this.questionAnswered(2)}>
+                <Text >  {this.props.answer_2} </Text></Button>
                 <CardItem/>
                 
               <Button
                style={{alignSelf:'center',width:'80%',justifyContent:'center'}}
               success          
-                >
-                <Text > 3. cevap </Text></Button>
+              onPress={()=>this.questionAnswered(3)}>
+                <Text >  {this.props.answer_3} </Text></Button>
                 <CardItem/>
               
               <Button
                style={{alignSelf:'center',width:'80%',justifyContent:'center'}}
               success          
-                >
-                <Text > 4. cevap </Text></Button>
+              onPress={()=>this.questionAnswered(4)}>
+                <Text > {this.props.answer_4} </Text></Button>
                 <CardItem/>
               
               <Button
                style={{alignSelf:'center',width:'80%',justifyContent:'center'}}
               success          
-                >
-                <Text > 5. cevap </Text></Button>
+              onPress={()=>this.questionAnswered(5)}>
+                <Text >  {this.props.answer_5} </Text></Button>
                 <CardItem/>
         </Content>
        
